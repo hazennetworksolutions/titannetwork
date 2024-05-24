@@ -1,4 +1,4 @@
-# Titan Network Ubuntu Kurulum
+<h1 align="center"> Titan Network Ubuntu Kurulum </h1>
 
 Gereklilikleri yükleyelim
 sudo apt update
