@@ -42,7 +42,7 @@ titan-edge daemon stop
 ctrl+a aynı anda bastıktan sonra screen ekranı komut modu açılır sonrasında +d ye basarak ana ekrana dönebilirsin
 ```
 
-### Çıktın kapattın sonnrasında yeniden açtın ve kontrol etmek istedin
+### Çıktın kapattın sonrasında yeniden açtın ve kontrol etmek istedin
 ```
 screen -r -d titan
 ```
