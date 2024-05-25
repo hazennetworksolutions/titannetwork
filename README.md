@@ -26,7 +26,7 @@ wget -c https://github.com/Titannet-dao/titan-node/releases/download/v0.1.18/tit
 /usr/local/bin/titan-edge daemon start --init --url https://test-locator.titannet.io:5000/rpc/v0
 ```
 
-### Nodu titan hesabımıza bağlayalım
+### Nodu titan hesabımıza bağlayalım identity-code burada lazım
 ```
 titan-edge bind --hash=identitycodeyazalım https://api-test1.container1.titannet.io/api/v2/device/binding
 ```
