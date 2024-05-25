@@ -1,5 +1,4 @@
 <h1 align="center"> Titan Network L2 Edge Node Ubuntu Kurulum </h1>
-![image](https://hizliresim.com/50b0334)
 
 * [Titan Website](https://test1.titannet.io/login)<br>
 * [Titan Discord](https://discord.com/invite/titannet)<br>
