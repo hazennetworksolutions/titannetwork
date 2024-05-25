@@ -1,5 +1,9 @@
 <h1 align="center"> Titan Network Ubuntu Kurulum </h1>
 
+* [Titan Website](https://test1.titannet.io/login)<br>
+
+Kurulumdan önce üstteki websiteye girip kaydolduktan sonra "console" > "node management" > "get identity code" kısmında identity code almanız gerekiyor. Birazdan lazım olacak
+
 ### Gereklilikleri yükleyelim
 ```
 sudo apt update && sudo apt upgrade -y
