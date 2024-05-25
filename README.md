@@ -1,6 +1,9 @@
-<h1 align="center"> Titan Network Ubuntu Kurulum </h1>
+<h1 align="center"> Titan Network L2 Edge Node Ubuntu Kurulum </h1>
+![image](https://hizliresim.com/50b0334)
 
 * [Titan Website](https://test1.titannet.io/login)<br>
+* [Titan Discord](https://discord.com/invite/titannet)<br>
+* [Titan Telegram](https://t.me/titannet_dao)<br>
 
 Kurulumdan önce üstteki websiteye girip kaydolduktan sonra "console" > "node management" > "get identity code" kısmında identity code almanız gerekiyor. Birazdan lazım olacak. Ayrıca tüm nodelarımızı "node management" kısmından kontrol edebiliriz.
 
