@@ -2,7 +2,7 @@
 
 * [Titan Website](https://test1.titannet.io/login)<br>
 
-Kurulumdan önce üstteki websiteye girip kaydolduktan sonra "console" > "node management" > "get identity code" kısmında identity code almanız gerekiyor. Birazdan lazım olacak
+Kurulumdan önce üstteki websiteye girip kaydolduktan sonra "console" > "node management" > "get identity code" kısmında identity code almanız gerekiyor. Birazdan lazım olacak. Ayrıca tüm nodelarımızı "node management" kısmından kontrol edebiliriz.
 
 ### Gereklilikleri yükleyelim
 ```
