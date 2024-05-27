@@ -6,7 +6,7 @@
 
 * [Titan L1 Validation Node Başvuru Formu](https://t.co/8CeQKPNu9x)<br>
 
-Kurulumdan önce üstteki Titan L1 Validation Node Başvuru Formunu doldurmanız ve L1 Validation node kurmaya hak kazanmanız gerekiyor. Eğer hak kazanırsanız size özel bir kod gönderiliyor. Bu kod tek kullanımlık ve 1 tane sunucu için kullanılabiliyor. Ayrıca nodu hesabımıza bağlamak için de identity code ihtiyacımız olacak.
+Kurulumdan önce üstteki Titan L1 Validation Node Başvuru Formunu doldurmanız ve L1 Validation node kurmaya hak kazanmanız gerekiyor. Eğer hak kazanırsanız size özel bir kod gönderiliyor. Bu kod tek kullanımlık ve 1 tane sunucu için kullanılabiliyor. Ayrıca nodu hesabımıza bağlamak için de identity code ihtiyacımız olacak. Titan'ın sitesinden alabiliriz.
 
 ### Gereklilikleri yükleyelim
 ```
@@ -75,11 +75,30 @@ while true; do
   sleep 60
 done
 ```
-
+### Kodumuzu yapıştırdıktan sonra ctrl+x yaptıktan sonra y basıyoruz ve enterlıyoruz.
 ```
 chmod +x titanscript.sh
 ```
 
 ```
 ./titanscript.sh
+```
+### Çalıştırdıktan sonra ana ekrana dönmek için
+```
+ctrl+a aynı anda bastıktan sonra screen ekranı komut modu açılır sonrasında +d ye basarak ana ekrana dönebilirsin
+```
+
+### Çıktın kapattın sonrasında yeniden açtın ve script kodunu kontrol etmek istedin
+```
+screen -r -d titanscript
+```
+
+### Birden fazla screen komutun var adını hatırlayamadın
+```
+screen -ls (hepsini görüntüler id ile birlikte) 
+```
+
+### Açık olan herhangi bir screeni kapatmak istedin
+```
+screen -X -S screenid quit
 ```
