@@ -1,64 +1,64 @@
-<h1 align="center"> Titan Network L2 Edge Node Ubuntu Installation </h1>
+<h1 align="center"> Titan Network L2 Edge Node Ubuntu Kurulum </h1>
 
 * [Titan Website](https://test1.titannet.io/login)<br>
 * [Titan Discord](https://discord.com/invite/titannet)<br>
 * [Titan Telegram](https://t.me/titannet_dao)<br>
 
-Before installation, you need to visit the website above and sign up. Then go to "console" > "node management" > "get identity code" to obtain the identity code. You will need this shortly. Additionally, we can monitor all our nodes from the "node management" section.
+Kurulumdan önce üstteki websiteye girip kaydolduktan sonra "console" > "node management" > "get identity code" kısmında identity code almanız gerekiyor. Birazdan lazım olacak. Ayrıca tüm nodelarımızı "node management" kısmından kontrol edebiliriz.
 
-### Install the prerequisites
+### Gereklilikleri yükleyelim
 ```
 sudo apt update && sudo apt upgrade -y
 sudo apt install screen
 ```
 
-### We perform the operations within a screen session
+### İşlemleri screen içinde yapıyoruz
 ```
 screen -S titan
 ```
 
-### Download and install the Titan Network file.
+### Titan Network dosyasını çekelim ve kuralım
 ```
 wget -c https://github.com/Titannet-dao/titan-node/releases/download/v0.1.18/titan_v0.1.18_linux_amd64.tar.gz -O - | sudo tar -xz -C /usr/local/bin --strip-components=1
 ```
 
-### Start the node.
+### Nodu çalıştıralım
 ```
-First run after the initial installation 
+İlk kurulumdan sonraki ilk çalıştırma 
 /usr/local/bin/titan-edge daemon start --init --url https://test-locator.titannet.io:5000/rpc/v0
 ```
 
-### Connect the node to our Titan account. We'll need the identity code for this step.
+### Nodu titan hesabımıza bağlayalım identity-code burada lazım
 ```
-titan-edge bind --hash=writeidentitycodehere https://api-test1.container1.titannet.io/api/v2/device/binding
+titan-edge bind --hash=identitycodeyazalım https://api-test1.container1.titannet.io/api/v2/device/binding
 ```
 
-### If the node stops or encounters an issue, here's how to restart it
+### Nod durursa veya sorun olursa yeniden çalıştırmak için
 ```
 titan-edge daemon start
 ```
 
-### To stop the node
+### Nodu durdurmak için
 ```
 titan-edge daemon stop
 ```
 
-### To return to the main screen after installation
+### Kurulumdan sonra ana ekrana dönmek için
 ```
-pressing ctrl+a simultaneously opens the command mode in the screen, then press +d to return to the main screen.
+ctrl+a aynı anda bastıktan sonra screen ekranı komut modu açılır sonrasında +d ye basarak ana ekrana dönebilirsin
 ```
 
-### You exited, closed, then reopened it, and wanted to check again
+### Çıktın kapattın sonrasında yeniden açtın ve kontrol etmek istedin
 ```
 screen -r -d titan
 ```
 
-### You have multiple screen commands, and you can't remember their names.
+### Birden fazla screen komutun var adını hatırlayamadın
 ```
-screen -ls (show all of them with their names, including id) 
+screen -ls (hepsini görüntüler id ile birlikte) 
 ```
 
-### You wanted to close any open screen session
+### Açık olan herhangi bir screeni kapatmak istedin
 ```
 screen -X -S screenid quit
 ```
