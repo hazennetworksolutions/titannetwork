@@ -4,7 +4,7 @@
 * [Titan Discord](https://discord.com/invite/titannet)<br>
 * [Titan Telegram](https://t.me/titannet_dao)<br>
 
-Before installation, you need to visit the website above and sign up. Then go to "console" > "node management" > "get identity code" to obtain the identity code. You will need this shortly. Additionally, we can monitor all our nodes from the "node management" section.
+Before installation, you need to visit the website above and sign up. Then go to "console" > "node management" > "get identity code" to obtain the identity code. You will need this shortly. Additionally, we can monitor all our nodes from the "node management" section
 
 ### Install the prerequisites
 ```
@@ -17,18 +17,18 @@ sudo apt install screen
 screen -S titan
 ```
 
-### Download and install the Titan Network file.
+### Download and install the Titan Network file
 ```
 wget -c https://github.com/Titannet-dao/titan-node/releases/download/v0.1.18/titan_v0.1.18_linux_amd64.tar.gz -O - | sudo tar -xz -C /usr/local/bin --strip-components=1
 ```
 
-### Start the node.
+### Start the node
 ```
 First run after the initial installation 
 /usr/local/bin/titan-edge daemon start --init --url https://test-locator.titannet.io:5000/rpc/v0
 ```
 
-### Connect the node to our Titan account. We'll need the identity code for this step.
+### Connect the node to our Titan account. We'll need the identity code for this step
 ```
 titan-edge bind --hash=writeidentitycodehere https://api-test1.container1.titannet.io/api/v2/device/binding
 ```
@@ -53,7 +53,7 @@ pressing ctrl+a simultaneously opens the command mode in the screen, then press 
 screen -r -d titan
 ```
 
-### You have multiple screen commands, and you can't remember their names.
+### You have multiple screen commands, and you can't remember their names
 ```
 screen -ls (show all of them with their names, including id) 
 ```
