@@ -17,44 +17,30 @@ sudo apt install screen
 screen -S titan
 ```
 
-### Titan Network dosyasını indirelim
+### Titan Network dosyasını çekelim ve kuralım
 ```
-wget https://github.com/Titannet-dao/titan-node/releases/download/v0.1.19/titan-l2edge_v0.1.19_patch_linux_amd64.tar.gz
-```
-
-### Titan Network dosyasını çıkartalım
-```
-tar -xzf titan-l2edge_v0.1.19_patch_linux_amd64.tar.gz
+wget -c https://github.com/Titannet-dao/titan-node/releases/download/v0.1.19/titan-l2edge_v0.1.19_patch_linux_amd64.tar.gz -O - | sudo tar -xz -C /usr/local/bin --strip-components=1
 ```
 
-### Titan Network dosyasına gerekli izinleri verelim ve açalım işlemleri burada yapacağız
+### Nodu çalıştıralım (ilk kurulumdan sonraki ilk çalıştırma)
 ```
-chmod +x /root/titan-edge_v0.1.19_89e53b6_linux_amd64/titan-edge
-cd /root/titan-edge_v0.1.19_89e53b6_linux_amd64/
-```
-
-
-### Gerekli kütüphane değişkenini tanımlayalım ve nodu çalıştıralım
-```
-İlk kurulumdan sonraki ilk çalıştırma
-export LD_LIBRARY_PATH=/root/titan-edge_v0.1.19_89e53b6_linux_amd64:$LD_LIBRARY_PATH
-
-./titan-edge daemon start --init --url https://cassini-locator.titannet.io:5000/rpc/v0
+export LD_LIBRARY_PATH=$LD_LIZBRARY_PATH:/usr/local/bin
+titan-edge daemon start --init --url https://cassini-locator.titannet.io:5000/rpc/v0
 ```
 
 ### Nodu titan hesabımıza bağlayalım identity-code burada lazım
 ```
-./titan-edge bind --hash=your-hash-here https://api-test1.container1.titannet.io/api/v2/device/binding
+titan-edge bind --hash=identitycodeyazalım https://api-test1.container1.titannet.io/api/v2/device/binding
 ```
 
 ### Nod durursa veya sorun olursa yeniden çalıştırmak için
 ```
-./titan-edge daemon start
+titan-edge daemon start
 ```
 
 ### Nodu durdurmak için
 ```
-./titan-edge daemon stop
+titan-edge daemon stop
 ```
 
 ### Kurulumdan sonra ana ekrana dönmek için
