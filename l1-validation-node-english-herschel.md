@@ -1,4 +1,4 @@
-<h1 align="center"> Titan Network L1 Validation Node Ubuntu Installation </h1>
+<h1 align="center"> Titan Network L1 Validation Node Herschel Testnet Ubuntu Installation </h1>
 
 * [Titan Website](https://test1.titannet.io/login)<br>
 * [Titan Discord](https://discord.com/invite/titannet)<br>
