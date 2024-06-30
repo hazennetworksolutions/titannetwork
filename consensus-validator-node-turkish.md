@@ -45,7 +45,7 @@ mv genesis.json /root/.titan/config/genesis.json
 
 ### Seed ve Peer ayarlarını yapalım
 ```
-sed -i.bak -e '/^seeds =/d' -e '/^persistent_peers =/d' -e '$a\seeds = "bb075c8cc4b7032d506008b68d4192298a09aeea@47.76.107.159:26656"\npersistent_peers = "b656a30fd7585c68c72167805784bcd3bed2d67c@8.217.10.76:26656"' /root/.titan/config/config.toml
+sed -i.bak -e "/^seeds/c seeds = \"bb075c8cc4b7032d506008b68d4192298a09aeea@47.76.107.159:26656\"" -e "/^persistent_peers/c persistent_peers = \"b656a30fd7585c68c72167805784bcd3bed2d67c@8.217.10.76:26656\"" /root/.titan/config/config.toml
 ```
 
 ### Gas ayarı yapalım
@@ -66,4 +66,14 @@ CUSTOM_PORT=356
 
 sed -i -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:${CUSTOM_PORT}58\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:${CUSTOM_PORT}57\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:${CUSTOM_PORT}60\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:${CUSTOM_PORT}56\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":${CUSTOM_PORT}66\"%" $HOME/.titan/config/config.toml
 sed -i -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${CUSTOM_PORT}17\"%; s%^address = \":8080\"%address = \":${CUSTOM_PORT}80\"%; s%^address = \"localhost:9090\"%address = \"localhost:${CUSTOM_PORT}90\"%; s%^address = \"localhost:9091\"%address = \"localhost:${CUSTOM_PORT}91\"%" $HOME/.titan/config/app.toml
+```
+
+### Gas ayarı yapalım
+```
+sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025uttnt\"/;" ~/.titan/config/app.toml
+```
+
+### Gas ayarı yapalım
+```
+sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025uttnt\"/;" ~/.titan/config/app.toml
 ```
