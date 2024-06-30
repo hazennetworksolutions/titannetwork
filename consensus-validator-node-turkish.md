@@ -3,6 +3,7 @@
 * [Titan Website](https://test1.titannet.io/login)<br>
 * [Titan Discord](https://discord.com/invite/titannet)<br>
 * [Titan Telegram](https://t.me/titannet_dao)<br>
+* [Titan Explorer](https://explorers.titannet.io/en)<br>
 
 ### Gereklilikleri yükleyelim
 ```
@@ -60,7 +61,7 @@ sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"100\"/" $HOME/.ti
 sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"50\"/" $HOME/.titan/config/app.toml
 ```
 
-### Port değiştirmek istiyorsanız 35XXX portlarına taşımak için aşağıdaki kodu kullanabilirsiniz zorunlu değil.
+### Port değiştirmek istiyorsanız 35XXX portlarına taşımak için aşağıdaki kodu kullanabilirsiniz zorunlu değil
 ```
 CUSTOM_PORT=356
 
@@ -73,7 +74,49 @@ sed -i -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${CUSTO
 sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025uttnt\"/;" ~/.titan/config/app.toml
 ```
 
-### Gas ayarı yapalım
+### Servis dosyasını oluşturalım
 ```
-sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025uttnt\"/;" ~/.titan/config/app.toml
+sudo bash -c 'cat > /etc/systemd/system/titan.service <<EOF
+[Unit]
+Description=Titan Daemon
+After=network-online.target
+
+[Service]
+User=root
+ExecStart=/usr/local/bin/titand start
+Restart=always
+RestartSec=3
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target
+EOF'
+```
+
+### Nodu başlatalım. Peere bağlanması biraz uzun sürüyor beklemek lazım
+```
+sudo systemctl daemon-reload
+sudo systemctl enable titan.service
+sudo systemctl restart titan.service
+```
+
+### Cüzdan oluşturalım cuzdanadiniz kısmına istediğiniz cüzdan adını yazarsınız
+```
+titand keys add cuzdanadiniz
+```
+
+### Discorddan faucet alalım. Faucet aldıktan ve eşlendikten sonra validatör oluşturalım
+```
+titand tx staking create-validator \
+  --amount=1000000uttnt \
+  --pubkey=$(titand tendermint show-validator) \
+  --chain-id=titan-test-1 \
+  --moniker=<moniker> \
+  --from=<account> \
+  --commission-max-change-rate=0.01 \
+  --commission-max-rate=1.0 \
+  --commission-rate=0.07 \
+  --min-self-delegation=1 \
+  --fees 500uttnt \
+  --ip=<ip>
 ```
