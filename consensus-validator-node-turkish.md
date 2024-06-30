@@ -105,18 +105,23 @@ sudo systemctl restart titan.service
 titand keys add cuzdanadiniz
 ```
 
+### Cüzdan import etmek isterseniz cuzdanadiniz kısmına istediğiniz cüzdan adını yazarsınız
+```
+titand keys add cuzdanadiniz --recover
+```
+
 ### Discorddan faucet alalım. Faucet aldıktan ve eşlendikten sonra validatör oluşturalım
 ```
 titand tx staking create-validator \
   --amount=1000000uttnt \
   --pubkey=$(titand tendermint show-validator) \
   --chain-id=titan-test-1 \
-  --moniker=<moniker> \
-  --from=<account> \
+  --moniker=monikeradiniz \
+  --from=cuzdanadiniz \
   --commission-max-change-rate=0.01 \
   --commission-max-rate=1.0 \
   --commission-rate=0.07 \
   --min-self-delegation=1 \
   --fees 500uttnt \
-  --ip=<ip>
+  -y
 ```
