@@ -54,7 +54,9 @@ mv genesis.json /root/.titan/config/genesis.json
 
 ### Seed ve Peer ayarlarını yapalım
 ```
-sed -i.bak -e "/^seeds/c seeds = \"bb075c8cc4b7032d506008b68d4192298a09aeea@47.76.107.159:26656\"" -e "/^persistent_peers/c persistent_peers = \"b656a30fd7585c68c72167805784bcd3bed2d67c@8.217.10.76:26656\"" /root/.titan/config/config.toml
+SEEDS="bb075c8cc4b7032d506008b68d4192298a09aeea@47.76.107.159:26656"
+PEERS="b656a30fd7585c68c72167805784bcd3bed2d67c@8.217.10.76:26656"
+sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.titan/config/config.toml
 ```
 
 ### Gas ayarı yapalım
