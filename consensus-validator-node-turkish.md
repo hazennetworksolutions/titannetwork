@@ -5,6 +5,9 @@
 * [Titan Telegram](https://t.me/titannet_dao)<br>
 * [Titan Explorer](https://explorers.titannet.io/en)<br>
 
+### Şu anda daha önce testnete katılmış olanlar kurabiliyor bunun sebebi ise discord faucet sisteminin dahaca çalışmıyor olması. Eğer daha önceden puan kastıysanız alttaki adresten test tokenlarınızı talep edin.
+https://faucet.titannet.io/
+
 ### Gereklilikleri yükleyelim
 ```
 sudo apt update && sudo apt upgrade -y
@@ -98,6 +101,11 @@ EOF'
 sudo systemctl daemon-reload
 sudo systemctl enable titan.service
 sudo systemctl restart titan.service
+```
+
+### Logları kontrol etmek için
+```
+sudo journalctl -u titan.service -fo cat
 ```
 
 ### Cüzdan oluşturalım cuzdanadiniz kısmına istediğiniz cüzdan adını yazarsınız
