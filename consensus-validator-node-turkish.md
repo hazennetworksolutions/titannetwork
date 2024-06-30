@@ -36,6 +36,11 @@ cd titan
 go build ./cmd/titand
 ```
 
+### Dosyayı hedef dizine taşıyalım
+```
+cp titand /usr/local/bin
+```
+
 ### Nodumuzun yapılandırma dosyalarını oluşturmak monikeradiniz kısmını istediğiniz isimle değiştirip kodu girin
 ```
 titand init monikeradiniz --chain-id titan-test-1
