@@ -131,12 +131,21 @@ titand tx staking create-validator \
   --amount=1000000uttnt \
   --pubkey=$(titand tendermint show-validator) \
   --chain-id=titan-test-1 \
-  --moniker=monikeradiniz \
   --from=cuzdanadiniz \
+  --moniker "monikeradiniz" \
+  --identity "opsiyonel" \
+  --details "opsiyonel" \
+  --website "opsiyonel" \
   --commission-max-change-rate=0.01 \
   --commission-max-rate=1.0 \
   --commission-rate=0.07 \
   --min-self-delegation=1 \
   --fees 500uttnt \
+  --node=http://localhost:35657
   -y
+```
+
+### Stake edelim
+```
+titand tx staking delegate $(hedged keys show cuzdanadiniz --bech val -a) 1000000uttnt --from cuzdanadiniz --chain-id titan-test-1 --gas-prices=0.025uhedge --gas-adjustment=1.5 --gas=auto --node=http://localhost:35657 -y
 ```
