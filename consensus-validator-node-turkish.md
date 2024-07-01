@@ -52,6 +52,11 @@ wget https://raw.githubusercontent.com/nezha90/titan/main/genesis/genesis.json
 mv genesis.json /root/.titan/config/genesis.json
 ```
 
+### Güncel addrbook indirelim
+```
+curl -L https://raw.githubusercontent.com/hazennetworksolutions/titannetwork/main/addrbook.json > $HOME/.titan/config/addrbook.json
+```
+
 ### Seed ve Peer ayarlarını yapalım
 ```
 SEEDS="bb075c8cc4b7032d506008b68d4192298a09aeea@47.76.107.159:26656"
