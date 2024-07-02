@@ -152,5 +152,5 @@ titand tx staking create-validator \
 
 ### Stake edelim
 ```
-titand tx staking delegate $(titand keys show cuzdanadiniz --bech val -a) 1000000uttnt --from cuzdanadiniz --chain-id titan-test-1 --gas-prices=0.025uhedge --gas-adjustment=1.5 --gas=auto --node=http://localhost:35657 -y
+titand tx staking delegate $(titand keys show cuzdanadiniz --bech val -a) 1000000uttnt --from cuzdanadiniz --chain-id titan-test-1 --gas-prices=0.025uttnt --gas-adjustment=1.5 --gas=auto --node=http://localhost:35657 -y
 ```
