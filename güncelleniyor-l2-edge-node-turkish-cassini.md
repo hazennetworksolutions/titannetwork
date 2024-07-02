@@ -6,6 +6,12 @@
 
 Kurulumdan önce üstteki websiteye girip kaydolduktan sonra "console" > "node management" > "get identity code" kısmında identity code almanız gerekiyor. Birazdan lazım olacak. Ayrıca tüm nodelarımızı "node management" kısmından kontrol edebiliriz.
 
+### Öncelikle daha önceki testnet aşamalarına katıldığınız bir sunucuya yükleyecekseniz eski nodu durdurup dosyalarını silmeniz gerekiyor
+```
+rm -rf ~/.titanedge 
+rm -rf $TITAN_EDGE_PATH 
+rm -rf $EDGE_PATH 
+```
 ### Gereklilikleri yükleyelim
 ```
 sudo apt update && sudo apt upgrade -y
@@ -17,25 +23,30 @@ sudo apt install screen
 screen -S titan
 ```
 
-### Titan Network dosyasını çekelim ve kuralım
+### Titan Network dosyasını indirelim ve içindekileri çıkaralım
 ```
-wget -c https://github.com/Titannet-dao/titan-node/releases/download/v0.1.19/titan-l2edge_v0.1.19_patch_linux_amd64.tar.gz -O - | sudo tar -xz -C /usr/local/bin --strip-components=1
+cd
+wget https://github.com/Titannet-dao/titan-node/releases/download/v0.1.19/titan-l2edge_v0.1.19_patch_linux_amd64.tar.gz
+tar -zxvf titan-l2edge_v0.1.19_patch_linux_amd64.tar.gz
 ```
 
-### Nodu çalıştıralım (ilk kurulumdan sonraki ilk çalıştırma)
+### Dosyanın içine girelim ve içindekileri gerekli dizine taşıyalım
 ```
-export LD_LIBRARY_PATH=$LD_LIZBRARY_PATH:/usr/local/bin
+cd /root/titan-edge_v0.1.19_89e53b6_linux_amd64
+sudo cp titan-edge /usr/local/bin
+sudo cp libgoworkerd.so /usr/local/lib
+sudo cp libgoworkerd.so /usr/lib/
+```
+
+### Nodu çalıştıralım
+```
+export LD_LIBRARY_PATH=$LD_LIZBRARY_PATH:./libgoworkerd.so
 titan-edge daemon start --init --url https://cassini-locator.titannet.io:5000/rpc/v0
 ```
 
 ### Nodu titan hesabımıza bağlayalım identity-code burada lazım
 ```
-titan-edge bind --hash=identitycodeyazalım https://api-test1.container1.titannet.io/api/v2/device/binding
-```
-
-### Nod durursa veya sorun olursa yeniden çalıştırmak için
-```
-titan-edge daemon start
+titan-edge bind --hash=B8C1AF82-1F14-47D8-89B4-B8525317D309 https://api-test1.container1.titannet.io/api/v2/device/binding
 ```
 
 ### Nodu durdurmak için
