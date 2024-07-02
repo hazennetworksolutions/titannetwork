@@ -8,6 +8,9 @@
 ### Şu anda daha önce testnete katılmış olanlar kurabiliyor bunun sebebi ise discord faucet sisteminin dahaca çalışmıyor olması. Eğer daha önceden puan kastıysanız alttaki adresten test tokenlarınızı talep edin.
 https://faucet.titannet.io/
 
+### Validator kurmayıp sadece stake edecek olanlar için bizim validatörün adresi: titanvaloper1svtz89c2xpz0l3lyscvmsx4eat4kgml0mn7phn
+https://staking.titannet.io/
+
 ### Gereklilikleri yükleyelim
 ```
 sudo apt update && sudo apt upgrade -y
