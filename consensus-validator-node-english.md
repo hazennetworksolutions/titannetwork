@@ -5,7 +5,9 @@
 * [Titan Telegram](https://t.me/titannet_dao)<br>
 * [Titan Explorer](https://explorers.titannet.io/en)<br>
 
-### Currently, only those who have participated in the testnet before can install because the discord faucet system is not yet working. If you have previously earned points, request your test tokens from the address below.
+### Discord faucet is working now
+
+### If you have previously earned points, request your test tokens from the address below.
 https://faucet.titannet.io/
 
 ### For those who will only stake and not set up a validator, our validator's address is: titanvaloper1svtz89c2xpz0l3lyscvmsx4eat4kgml0mn7phn
