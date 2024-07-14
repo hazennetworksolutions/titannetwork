@@ -5,6 +5,8 @@
 * [Titan Telegram](https://t.me/titannet_dao)<br>
 * [Titan Explorer](https://explorers.titannet.io/en)<br>
 
+### Discord faucet şu anda çalışıyor.
+
 ### Şu anda daha önce testnete katılmış olanlar kurabiliyor bunun sebebi ise discord faucet sisteminin dahaca çalışmıyor olması. Eğer daha önceden puan kastıysanız alttaki adresten test tokenlarınızı talep edin.
 https://faucet.titannet.io/
 
