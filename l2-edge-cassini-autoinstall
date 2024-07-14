@@ -2,22 +2,14 @@
 
 # Titan Network L2 Edge Node Herschel Testnet Ubuntu Installation Script
 
-# Update and upgrade the system
-echo "Updating and upgrading the system..."
-sudo apt update && sudo apt upgrade -y
-
-# Install screen
-echo "Installing screen..."
-sudo apt install screen -y
+# Download and install Titan Network file
+echo "Downloading and installing Titan Network file..."
+wget -c https://github.com/Titannet-dao/titan-node/releases/download/v0.1.18/titan_v0.1.18_linux_amd64.tar.gz -O - | sudo tar -xz -C /usr/local/bin --strip-components=1
 
 # Start a new screen session
 echo "Starting a new screen session..."
 screen -S titan -dm bash -c '
 
-  # Download and install Titan Network file
-  echo "Downloading and installing Titan Network file..."
-  wget -c https://github.com/Titannet-dao/titan-node/releases/download/v0.1.18/titan_v0.1.18_linux_amd64.tar.gz -O - | sudo tar -xz -C /usr/local/bin --strip-components=1
-  
   # Start the node for the first time
   echo "Starting the node for the first time..."
   /usr/local/bin/titan-edge daemon start --init --url https://test-locator.titannet.io:5000/rpc/v0
