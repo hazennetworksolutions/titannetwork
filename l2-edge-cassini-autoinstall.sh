@@ -21,7 +21,7 @@ echo "Screen session created."
 # Download and extract Titan files
 echo "Downloading and extracting Titan files..."
 cd ~
-wget https://github.com/Titannet-dao/titan-node/releases/download/v0.1.19/titan-l2edge_v0.1.19_patch_linux_amd64.tar.gz
+wget -q https://github.com/Titannet-dao/titan-node/releases/download/v0.1.19/titan-l2edge_v0.1.19_patch_linux_amd64.tar.gz
 tar -zxvf titan-l2edge_v0.1.19_patch_linux_amd64.tar.gz
 echo "File download and extraction completed."
 
@@ -35,9 +35,10 @@ echo "File copying completed."
 
 # Set environment variable and start Titan node
 echo "Setting environment variable and starting Titan node..."
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./libgoworkerd.so
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 # Start Titan node once
+echo "Starting Titan node..."
 titan-edge daemon start --init --url https://cassini-locator.titannet.io:5000/rpc/v0 &
 PID=$!
 sleep 10  # Wait 10 seconds to ensure the node is running
@@ -48,6 +49,7 @@ echo "Titan node started and stopped."
 read -p "Please enter your identity code: " identitycode
 
 # Run Titan bind command
+echo "Running Titan bind command..."
 titan-edge bind --hash=$identitycode https://api-test1.container1.titannet.io/api/v2/device/binding
 echo "Titan bind completed."
 
