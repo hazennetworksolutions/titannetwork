@@ -1,41 +1,58 @@
 #!/bin/bash
 
-# Update and upgrade system
-echo "Updating and upgrading system..."
+# Remove old files
+echo "Removing old files..."
+rm -rf ~/.titanedge
+rm -rf $TITAN_EDGE_PATH
+rm -rf $EDGE_PATH
+echo "File removal completed."
+
+# Update packages and install necessary software
+echo "Updating packages and installing necessary software..."
 sudo apt update && sudo apt upgrade -y
-
-# Install screen if not already installed
-echo "Installing screen..."
 sudo apt install screen -y
+echo "Package update and software installation completed."
 
-# Start a new screen session named 'titan'
-echo "Creating a new screen session 'titan'..."
-screen -dmS titan
+# Create a screen session for Titan
+echo "Creating a screen session for Titan..."
+screen -S titan -d -m
+echo "Screen session created."
 
-# Wait briefly for screen session to start
-sleep 1
+# Download and extract Titan files
+echo "Downloading and extracting Titan files..."
+cd ~
+wget https://github.com/Titannet-dao/titan-node/releases/download/v0.1.19/titan-l2edge_v0.1.19_patch_linux_amd64.tar.gz
+tar -zxvf titan-l2edge_v0.1.19_patch_linux_amd64.tar.gz
+echo "File download and extraction completed."
 
-# Switch to the 'titan' screen session
-echo "Switching to 'titan' screen session..."
-screen -S titan -X stuff $'\n'
+# Copy Titan files
+echo "Copying Titan files..."
+cd ~/titan-edge_v0.1.19_89e53b6_linux_amd64
+sudo cp titan-edge /usr/local/bin
+sudo cp libgoworkerd.so /usr/local/lib
+sudo cp libgoworkerd.so /usr/lib/
+echo "File copying completed."
 
-# Download and install Titan Network file
-echo "Downloading and installing Titan Network file..."
-wget -c https://github.com/Titannet-dao/titan-node/releases/download/v0.1.18/titan_v0.1.18_linux_amd64.tar.gz -O - | sudo tar -xz -C /usr/local/bin --strip-components=1
+# Set environment variable and start Titan node
+echo "Setting environment variable and starting Titan node..."
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./libgoworkerd.so
 
-# Start the Titan node
-echo "Starting the Titan node..."
-/usr/local/bin/titan-edge daemon start --init --url https://test-locator.titannet.io:5000/rpc/v0
+# Start Titan node once
+titan-edge daemon start --init --url https://cassini-locator.titannet.io:5000/rpc/v0 &
+PID=$!
+sleep 10  # Wait 10 seconds to ensure the node is running
+kill $PID
+echo "Titan node started and stopped."
 
-# Wait for the node to start up
-sleep 10
+# Ask user for identitycode
+read -p "Please enter your identity code: " identitycode
 
-# Prompt the user for the identity code
-echo "Please enter your Titan identity code:"
-read identity_code
+# Run Titan bind command
+titan-edge bind --hash=$identitycode https://api-test1.container1.titannet.io/api/v2/device/binding
+echo "Titan bind completed."
 
-# Bind the node with the provided identity code
-echo "Binding the Titan node with identity code $identity_code..."
-/usr/local/bin/titan-edge bind --hash="$identity_code" https://api-test1.container1.titannet.io/api/v2/device/binding
+# Restart Titan daemon
+echo "Restarting Titan daemon..."
+titan-edge daemon start
 
-echo "Setup completed."
+echo "Script completed successfully."
