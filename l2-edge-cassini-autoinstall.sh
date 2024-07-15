@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Ask user for identity code
+echo "Please enter your identity code:"
+read identitycode
+
 # Remove old files
 echo "Removing old files..."
 rm -rf ~/.titanedge
@@ -44,10 +48,6 @@ PID=$!
 sleep 10  # Wait 10 seconds to ensure the node is running
 kill $PID
 echo "Titan node started and stopped."
-
-# Ask user for identity code
-echo "Please enter your identity code:"
-read identitycode
 
 # Run Titan bind command with identity code
 echo "Running Titan bind command..."
