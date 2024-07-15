@@ -45,8 +45,9 @@ sleep 10  # Wait 10 seconds to ensure the node is running
 kill $PID
 echo "Titan node started and stopped."
 
-# Ask user for identitycode
-read -p "Please enter your identity code: " identitycode
+# Ask user for identity code
+echo "Please enter your identity code:"
+read identitycode
 
 # Run Titan bind command
 echo "Running Titan bind command..."
