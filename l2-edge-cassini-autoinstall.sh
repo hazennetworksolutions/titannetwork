@@ -49,7 +49,7 @@ echo "Titan node started and stopped."
 echo "Please enter your identity code:"
 read identitycode
 
-# Run Titan bind command
+# Run Titan bind command with identity code
 echo "Running Titan bind command..."
 titan-edge bind --hash=$identitycode https://api-test1.container1.titannet.io/api/v2/device/binding
 echo "Titan bind completed."
