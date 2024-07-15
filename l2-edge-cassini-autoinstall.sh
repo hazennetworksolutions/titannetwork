@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Ask user for identity code
-echo "Please enter your identity code:"
+echo -n "Please enter your identity code and press Enter: "
 read identitycode
 
 # Remove old files
@@ -50,7 +50,7 @@ kill $PID
 echo "Titan node started and stopped."
 
 # Run Titan bind command with identity code
-echo "Running Titan bind command..."
+echo "Running Titan bind command with identity code: $identitycode"
 titan-edge bind --hash=$identitycode https://api-test1.container1.titannet.io/api/v2/device/binding
 echo "Titan bind completed."
 
