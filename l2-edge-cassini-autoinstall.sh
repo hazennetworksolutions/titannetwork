@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Load identity code from ~/.bash_profile
+source ~/.bash_profile
+
 # Remove old files
 echo "Removing old files..."
 rm -rf ~/.titanedge
