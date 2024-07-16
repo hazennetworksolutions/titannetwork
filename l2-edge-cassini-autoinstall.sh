@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Ask user for identity code
-echo -n "Please enter your identity code and press Enter: "
-read identitycode
-
 # Remove old files
 echo "Removing old files..."
 rm -rf ~/.titanedge
