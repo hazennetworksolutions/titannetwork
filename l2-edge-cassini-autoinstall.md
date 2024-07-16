@@ -7,4 +7,6 @@
 
 ### Replace the part that says writeyouridentitycode with your identity code. Then run the command.
 
+```
 echo 'export identitycode="writeyouridentitycode"' >> ~/.bash_profile && source ~/.bash_profile && curl -sSL https://raw.githubusercontent.com/hazennetworksolutions/titannetwork/main/l2-edge-cassini-autoinstall.sh | bash
+```
