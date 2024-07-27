@@ -1,4 +1,4 @@
-<h1 align="center"> Titan Network Consensus Node Ubuntu Kurulum </h1>
+<h1 align="center"> Titan Network Consensus Node Ubuntu Güncelleme </h1>
 
 * [Titan Website](https://test1.titannet.io/login)<br>
 * [Titan Discord](https://discord.com/invite/titannet)<br>
