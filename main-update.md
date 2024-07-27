@@ -39,7 +39,7 @@ sudo cp titand /usr/local/bin
 ```
 sudo systemctl daemon-reload
 sudo systemctl restart titan.service
-sudo journalctl -u titan.service -f --no-hostname -o cat
+sudo journalctl -u titan.service -fo cat
 ```
 
 ### Buna benzer bir çıktı aldıysanız sorun yok
