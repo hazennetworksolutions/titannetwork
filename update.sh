@@ -45,6 +45,6 @@ keyring-backend = "os"
 # CLI output format (text|json)
 output = "text"
 # <host>:<port> to Tendermint RPC interface for this chain
-node = "tcp://localhost:26657"
+node = "tcp://localhost:35657"
 # Transaction broadcasting mode (sync|async)
 broadcast-mode = "sync"' > ~/.titan/config/client.toml
