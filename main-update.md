@@ -35,7 +35,7 @@ go build ./cmd/titand
 sudo cp titand /usr/local/bin
 ```
 
-### Restart atalım ve logları kontrol edelim
+### Restart atalım ve logları kontrol edelim. Logların gelmesi biraz sürebilir bekleyelim
 ```
 sudo systemctl daemon-reload
 sudo systemctl restart titan.service
