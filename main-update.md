@@ -41,3 +41,8 @@ sudo systemctl daemon-reload
 sudo systemctl restart titan.service
 sudo journalctl -u titan.service -f --no-hostname -o cat
 ```
+
+### Buna benzer bir çıktı aldıysanız sorun yok
+
+![hazenov](https://github.com/user-attachments/assets/34cb9cab-ea2a-448b-82e5-687d0e7a2867)
+
