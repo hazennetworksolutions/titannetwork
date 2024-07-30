@@ -32,7 +32,7 @@ tar -zxvf titan-edge_v0.1.20_246b9dd_linux-amd64.tar.gz
 
 ### Navigate into the directory and move the contents to the required directory.
 ```
-cd /root/titan-edge_v0.1.20_246b9dd_linux-amd64.tar
+cd /root/titan-edge_v0.1.20_246b9dd_linux-amd64
 sudo cp titan-edge /usr/local/bin
 sudo cp libgoworkerd.so /usr/local/lib
 sudo cp libgoworkerd.so /usr/lib/
