@@ -26,8 +26,8 @@ screen -S titan
 ### Download the Titan Network file and extract its contents.
 ```
 cd
-wget https://github.com/Titannet-dao/titan-node/releases/download/v0.1.19/titan-l2edge_v0.1.19_patch_linux_amd64.tar.gz
-tar -zxvf titan-l2edge_v0.1.19_patch_linux_amd64.tar.gz
+wget https://github.com/Titannet-dao/titan-node/releases/download/v0.1.20/titan-edge_v0.1.20_246b9dd_linux-amd64.tar.gz
+tar -zxvf titan-edge_v0.1.20_246b9dd_linux-amd64.tar.gz
 ```
 
 ### Navigate into the directory and move the contents to the required directory.
