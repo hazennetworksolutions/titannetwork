@@ -8,6 +8,8 @@ Kurulumdan önce üstteki websiteye girip kaydolduktan sonra "console" > "node m
 
 ### Öncelikle daha önceki testnet aşamalarına katıldığınız bir sunucuya yükleyecekseniz eski nodu durdurup dosyalarını silmeniz gerekiyor
 ```
+rm -rf /root/titan-edge_v0.1.19_89e53b6_linux_amd64
+rm -rf /usr/local/bin/titand
 rm -rf ~/.titanedge 
 rm -rf $TITAN_EDGE_PATH 
 rm -rf $EDGE_PATH 
@@ -26,13 +28,13 @@ screen -S titan
 ### Titan Network dosyasını indirelim ve içindekileri çıkaralım
 ```
 cd
-wget https://github.com/Titannet-dao/titan-node/releases/download/v0.1.19/titan-l2edge_v0.1.19_patch_linux_amd64.tar.gz
-tar -zxvf titan-l2edge_v0.1.19_patch_linux_amd64.tar.gz
+wget https://github.com/Titannet-dao/titan-node/releases/download/v0.1.20/titan-edge_v0.1.20_246b9dd_linux-amd64.tar.gz
+tar -zxvf titan-edge_v0.1.20_246b9dd_linux-amd64.tar.gz
 ```
 
 ### Dosyanın içine girelim ve içindekileri gerekli dizine taşıyalım
 ```
-cd /root/titan-edge_v0.1.19_89e53b6_linux_amd64
+cd /root/titan-edge_v0.1.20_246b9dd_linux-amd64/
 sudo cp titan-edge /usr/local/bin
 sudo cp libgoworkerd.so /usr/local/lib
 sudo cp libgoworkerd.so /usr/lib/
