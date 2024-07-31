@@ -8,6 +8,7 @@ Before installation, after registering on the website above, you need to go to "
 
 ### If you are installing on a server where you participated in previous testnet stages, you need to stop the old node and delete its files.
 ```
+rm -rf /root/titan-edge_v0.1.19_89e53b6_linux_amd64
 rm -rf /usr/local/bin/titand
 rm -rf ~/.titanedge 
 rm -rf $TITAN_EDGE_PATH 
