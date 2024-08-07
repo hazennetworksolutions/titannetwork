@@ -28,3 +28,4 @@ echo '{
 
 
 systemctl start titan
+sudo journalctl -u titan.service -f --no-hostname -o cat
