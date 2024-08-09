@@ -98,7 +98,7 @@ sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025uttnt\"/;
 ```
 SEEDS="bb075c8cc4b7032d506008b68d4192298a09aeea@47.76.107.159:26656"
 PEERS="b656a30fd7585c68c72167805784bcd3bed2d67c@8.217.10.76:26656"
-sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.wtitan/config/config.toml
+sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.titan/config/config.toml
 ```
 
 ### Set up pruning.
