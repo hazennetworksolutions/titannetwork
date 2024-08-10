@@ -138,32 +138,41 @@ titand keys add walletname --recover
 
 ### Create the validator
 ```
-wardend tx staking create-validator /root/validator.json \
-    --from=walletname \
-    --chain-id=buenavista-1 \
-    --fees=500uward \
-    --node=http://localhost:35257
+titand tx staking create-validator \
+--amount=1000000uttnt \
+--pubkey=$(titand tendermint show-validator) \
+--chain-id=titan-test-3 \
+--min-self-delegation 1 \
+--commission-max-change-rate=0.01 \
+--commission-max-rate=1.0 \
+--commission-rate=0.07 \
+--moniker "" \
+--identity "" \
+--details "" \
+--website "" \
+--security-contact "" \
+--min-self-delegation=1
+--from "wallet-name " \
+--node http://localhost:35257 \
+--fees 500uttnt \
+-y
 ```
 
 ### Let's stake
 ```
-wardend tx staking delegate valoperadress amount000000uward \
---chain-id buenavista-1 \
---from "walletname" \
---fees 500uward \
---node=http://localhost:35257
+titand tx staking delegate $(titand keys show wallet-name --bech val -a) amount000000uttnt --from wallet-name --chain-id titan-test-3 --fees 500uttnt --node http://localhost:35257 -y
 ```
 
 ### Unjail code
 ```
 titand tx slashing unjail --from wallet-name --chain-id titan-test-3 --fees 500uttnt --node=http://localhost:35257 -y
 ```
-### To completely remove the Warden node
+### To completely remove the Titan node
 ```
 sudo systemctl stop titan
 sudo systemctl disable titan
 sudo rm -rf /etc/systemd/system/titan.service
 sudo rm $(which titan)
 sudo rm -rf $HOME/.titan
-sed -i "/WARDEN_/d" $HOME/.bash_profile
+sed -i "/TITAN_/d" $HOME/.bash_profile
 ```
