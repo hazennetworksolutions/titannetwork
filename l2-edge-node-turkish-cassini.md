@@ -48,7 +48,7 @@ titan-edge daemon start --init --url https://cassini-locator.titannet.io:5000/rp
 
 ### Nodu titan hesabımıza bağlayalım identity-code burada lazım
 ```
-titan-edge bind --hash=B8C1AF82-1F14-47D8-89B4-B8525317D309 https://api-test1.container1.titannet.io/api/v2/device/binding
+titan-edge bind --hash=identitycodeyaz https://api-test1.container1.titannet.io/api/v2/device/binding
 ```
 
 ### Nodu durdurmak için
