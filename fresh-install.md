@@ -136,26 +136,33 @@ titand keys add walletname --recover
 ### We get the faucet from the Titan Discord #faucet channel. $request titanwalletadress
 
 
-### Create the validator
+### Create Validator
+Use the code below to learn the pubkey
 ```
-titand tx staking create-validator \
---amount=1000000uttnt \
---pubkey=$(titand tendermint show-validator) \
---chain-id=titan-test-3 \
---min-self-delegation 1 \
---commission-max-change-rate=0.01 \
---commission-max-rate=1.0 \
---commission-rate=0.07 \
---moniker "" \
---identity "" \
---details "" \
---website "" \
---security-contact "" \
---min-self-delegation=1
---from "wallet-name " \
---node http://localhost:35257 \
---fees 500uttnt \
--y
+titand comet show-validator
+```
+Write the pubkey you learned into the specified place below using nano.
+```
+nano /root/titanvalidator.json
+```
+```
+{
+ "pubkey":  "writeyourpubkey",
+ "amount": "1000000uttnt",
+ "moniker": "yourmoniker",
+ "commission-rate": "0.07",
+ "commission-max-rate": "1.0",
+ "commission-max-change-rate": "0.01",
+ "min-self-delegation": "1",
+ "identity": "",
+ "website": "",
+ "security": "",
+ "details": ""
+}
+```
+Use the code below to create validator
+```
+titand tx staking create-validator ~/titanvalidator.json --from walletname --fees 500uttnt --node=http://localhost:35257 -y
 ```
 
 ### Let's stake
