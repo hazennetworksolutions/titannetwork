@@ -147,7 +147,7 @@ nano /root/titanvalidator.json
 ```
 ```
 {
- "pubkey":  "writeyourpubkey",
+ "pubkey": writeyourpubkey,
  "amount": "1000000uttnt",
  "moniker": "yourmoniker",
  "commission-rate": "0.07",
@@ -162,7 +162,7 @@ nano /root/titanvalidator.json
 ```
 Use the code below to create validator
 ```
-titand tx staking create-validator /root/titanvalidator.json --from walletname --fees 500uttnt --node=http://localhost:35257 -y
+titand tx staking create-validator /root/titanvalidator.json --from walletname --fees 500uttnt --chain-id titan-test-3 --node=http://localhost:35257 -y
 ```
 
 ### Let's stake
