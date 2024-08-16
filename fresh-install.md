@@ -3,7 +3,7 @@
 * [Titan Website](https://test1.titannet.io/login)<br>
 * [Titan Discord](https://discord.com/invite/titannet)<br>
 * [Titan Telegram](https://t.me/titannet_dao)<br>
-* [Titan Explorer](https://explorers.titannet.io/en)<br>
+* [Titan Explorer](https://explorer.hazennetworksolutions.com/titan-testnet/staking)<br>
 
 ### Discord faucet is working now
 
