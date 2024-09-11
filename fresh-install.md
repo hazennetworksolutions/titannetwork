@@ -85,7 +85,7 @@ mv ~/genesis.json ~/.titan/config/genesis.json
 
 ### Download the updated addrbook.
 ```
-wget -P ~/. https://raw.githubusercontent.com/hazennetworksolutions/titannetwork/main/addrbook.json
+wget -P ~/. https://raw.githubusercontent.com/Titannet-dao/titan-chain/main/addrbook/addrbook.json
 mv ~/addrbook.json ~/.titan/config/addrbook.json
 ```
 
