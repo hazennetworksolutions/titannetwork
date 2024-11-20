@@ -115,8 +115,8 @@ echo 'export PORT='$PORT
 
 # Setting environment variables
 echo "export MONIKER=$MONIKER" >> $HOME/.bash_profile
-echo "export WARDEN_CHAIN_ID=\"titan-test-3\"" >> $HOME/.bash_profile
-echo "export WARDEN_PORT=$PORT" >> $HOME/.bash_profile
+echo "export TITAN_CHAIN_ID=\"titan-test-3\"" >> $HOME/.bash_profile
+echo "export TITAN_PORT=$PORT" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 
 printLine
