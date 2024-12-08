@@ -62,4 +62,6 @@ node = "tcp://localhost:29657"
 # Transaction broadcasting mode (sync|async)
 broadcast-mode = "sync"' > ~/.titan/config/client.toml
 
-systemctl start titan
+sudo systemctl daemon-reload
+sudo systemctl restart titan
+sudo journalctl -u titan.service -f --no-hostname -o cat
