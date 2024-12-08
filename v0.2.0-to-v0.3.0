@@ -7,7 +7,7 @@ cd ~ || exit
 sudo systemctl stop titan
 
 # Remove old titand program
-sudo rm $(which titan)
+sudo rm $(which titand)
 
 # Download new programs
 rm -rf /root/.titan/cosmovisor/genesis/bin/titand
