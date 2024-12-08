@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# Enter user directory
+cd ~ || exit
+
+# Stop old titan program
+sudo systemctl stop titan
+
+# Remove old titand program
+sudo rm $(which titan)
+
+# Download new programs
+rm -rf /root/.titan/cosmovisor/genesis/bin/titand
+wget -P /root https://github.com/Titannet-dao/titan-chain/releases/download/v0.3.0/titand_0.3.0-1_g167b7fd6.tar.gz
+tar -xvzf /root/titand_0.3.0-1_g167b7fd6.tar.gz -C /root
+rm -rf /root/titand_0.3.0-1_g167b7fd6.tar.gz
+mv /root/titand_0.3.0-1_g167b7fd6/titand /root/.titan/cosmovisor/genesis/bin/
+rm -rf /root/titand_0.3.0-1_g167b7fd6/
+chmod +x /root/.titan/cosmovisor/genesis/bin/titand
+
+# Back up the .titan directory. If something goes wrong in the middle, you can use the backup to restore and then execute again.
+mv ~/.titan ~/titan_bak_test_3
+
+# Copy directory and other information to the new path
+rsync -av --exclude "data" ~/titan_bak_test_3/* ~/.titan
+
+rm -rf /root/.titan/config/genesis.json
+
+# Download new genesis file
+curl -Ls https://raw.githubusercontent.com/hazennetworksolutions/titannetwork/refs/heads/main/genesis.json > $HOME/.titan/config/genesis.json
+
+wget -P ~/. https://github.com/Titannet-dao/titan-chain/releases/download/v0.3.0/libwasmvm.x86_64.so
+
+mv ~/libwasmvm.x86_64.so /usr/local/lib/libwasmvm.x86_64.so
+
+sudo ldconfig
+
+mkdir ~/.titan/data
+# Build data/priv_validator_state.json 文件
+echo '{
+  "height": "0",
+  "round": 0,
+  "step": 0
+}' > ~/.titan/data/priv_validator_state.json
+
+# Update config/client.toml chain-id
+echo '# This is a TOML config file.
+# For more information, see https://github.com/toml-lang/toml
+
+###############################################################################
+###                           Client Configuration                            ###
+###############################################################################
+
+# The network chain ID
+chain-id = "titan-test-4"
+# The keyring s backend, where the keys are stored (os|file|kwallet|pass|test|memory)
+keyring-backend = "os"
+# CLI output format (text|json)
+output = "json"
+# <host>:<port> to Tendermint RPC interface for this chain
+node = "tcp://localhost:29657"
+# Transaction broadcasting mode (sync|async)
+broadcast-mode = "sync"' > ~/.titan/config/client.toml
+
+systemctl start titan
