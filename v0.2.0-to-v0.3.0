@@ -4,6 +4,7 @@
 cd ~ || exit
 
 # Stop old titan program
+apt install rsync
 sudo systemctl stop titan
 
 # Remove old titand program
