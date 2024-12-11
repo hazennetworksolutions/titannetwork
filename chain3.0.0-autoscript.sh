@@ -77,7 +77,7 @@ Hazen Network Solutions 2024 All rights reserved."
 printNodeLogo
 
 # User confirmation to proceed
-echo -n "Type 'yes' to start the installation Titan Network v2.0.0 with Cosmovisor and press Enter: "
+echo -n "Type 'yes' to start the installation Titan Network v3.0.0 with Cosmovisor and press Enter: "
 read user_input
 
 if [[ "$user_input" != "yes" ]]; then
