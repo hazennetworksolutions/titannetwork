@@ -220,6 +220,13 @@ sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"50\"/" $HOME/.titan/con
 
 # Download the snapshot
 # printGreen "12. Downloading snapshot and starting node..." && sleep 1
+cd $HOME
+snap install lz4
+sudo systemctl stop titan
+cp $HOME/.titan/data/priv_validator_state.json $HOME/.titan/priv_validator_state.json.backup
+rm -rf $HOME/.titan/data
+curl -o - -L https://server-3.hazennetworksolutions.com/titansnapshot.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.titan --strip-components 2
+mv $HOME/.titan/priv_validator_state.json.backup $HOME/.titan/data/priv_validator_state.json
 
 
 # Start the node
