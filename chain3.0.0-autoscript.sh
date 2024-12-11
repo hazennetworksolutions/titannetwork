@@ -144,13 +144,12 @@ echo $(go version) && sleep 1
 
 # Download Warden protocol binary
 printGreen "3. Downloading Titan binary and setting up..." && sleep 1
-git clone https://github.com/Titannet-dao/titan-chain.git
-cd titan-chain
-git fetch origin
-git checkout origin/main
-go build ./cmd/titand
-mkdir -p /root/.titan/cosmovisor/genesis/bin
-cp -r /root/titan-chain/titand /root/.titan/cosmovisor/genesis/bin/
+wget -P /root https://github.com/Titannet-dao/titan-chain/releases/download/v0.3.0/titand_0.3.0-1_g167b7fd6.tar.gz
+tar -xvzf /root/titand_0.3.0-1_g167b7fd6.tar.gz -C /root
+rm -rf /root/titand_0.3.0-1_g167b7fd6.tar.gz
+mv /root/titand_0.3.0-1_g167b7fd6/titand /root/.titan/cosmovisor/genesis/bin/
+rm -rf /root/titand_0.3.0-1_g167b7fd6/
+chmod +x /root/.titan/cosmovisor/genesis/bin/titand
 wget -P /root https://github.com/Titannet-dao/titan-chain/releases/download/v0.3.0/titand_0.3.0-1_g167b7fd6.tar.gz
 tar -xvzf /root/titand_0.3.0-1_g167b7fd6.tar.gz -C /root
 rm -rf /root/titand_0.3.0-1_g167b7fd6.tar.gz
