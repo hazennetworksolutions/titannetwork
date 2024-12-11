@@ -144,19 +144,13 @@ echo $(go version) && sleep 1
 
 # Download Warden protocol binary
 printGreen "3. Downloading Titan binary and setting up..." && sleep 1
-wget -P /root https://github.com/Titannet-dao/titan-chain/releases/download/v0.3.0/titand_0.3.0-1_g167b7fd6.tar.gz
-tar -xvzf /root/titand_0.3.0-1_g167b7fd6.tar.gz -C /root
-rm -rf /root/titand_0.3.0-1_g167b7fd6.tar.gz
+git clone https://github.com/Titannet-dao/titan-chain.git
+cd titan-chain
+git fetch origin
+git checkout origin/main
+go build ./cmd/titand
 mkdir -p /root/.titan/cosmovisor/genesis/bin
-mv /root/titand_0.3.0-1_g167b7fd6/titand /root/.titan/cosmovisor/genesis/bin/
-rm -rf /root/titand_0.3.0-1_g167b7fd6/
-chmod +x /root/.titan/cosmovisor/genesis/bin/titand
-wget -P /root https://github.com/Titannet-dao/titan-chain/releases/download/v0.3.0/titand_0.3.0-1_g167b7fd6.tar.gz
-tar -xvzf /root/titand_0.3.0-1_g167b7fd6.tar.gz -C /root
-rm -rf /root/titand_0.3.0-1_g167b7fd6.tar.gz
-mv /root/titand_0.3.0-1_g167b7fd6/titand $HOME/go/bin
-rm -rf /root/titand_0.3.0-1_g167b7fd6/
-chmod +x $HOME/go/bin/titand
+cp -r /root/titan-chain/titand /root/.titan/cosmovisor/genesis/bin/
 
 # Create symlinks
 printGreen "4. Creating symlinks..." && sleep 1
@@ -226,14 +220,6 @@ sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"50\"/" $HOME/.titan/con
 
 # Download the snapshot
 # printGreen "12. Downloading snapshot and starting node..." && sleep 1
-
-cd $HOME
-snap install lz4
-sudo systemctl stop titan
-cp $HOME/.titan/data/priv_validator_state.json $HOME/.titan/priv_validator_state.json.backup
-rm -rf $HOME/.titan/data
-curl -o - -L https://server-9.hazennetworksolutions.com/titansnapshot.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.titan --strip-components 2
-mv $HOME/.titan/priv_validator_state.json.backup $HOME/.titan/data/priv_validator_state.json
 
 
 # Start the node
