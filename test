@@ -33,7 +33,7 @@
 
 # List of nodes to bootstrap UDP discovery. Note, `network_enr_address` should be
 # configured as well to enable UDP discovery.
-network_boot_nodes = ["/ip4/47.251.79.83/udp/1234/p2p/16Uiu2HAkvJYQABP1MdvfWfUZUzGLx1sBSDZ2AT92EFKcMCCPVawV", "/ip4/47.238.87.44/udp/1234/p2p/16Uiu2HAmFGsLoajQdEds6tJqsLX7Dg8bYd2HWR4SbpJUut4QXqCj", "/ip4/47.251.78.104/udp/1234/p2p/16Uiu2HAmSe9UWdHrqkn2mKh99b9DwYZZcea6krfidtU3e5tiHiwN", "/ip4/47.76.30.235/udp/1234/p2p/16Uiu2HAm5tCqwGtXJemZqBhJ9JoQxdDgkWYavfCziaqaAYkGDSfU"]
+network_boot_nodes = ["/ip4/47.251.117.133/udp/1234/p2p/16Uiu2HAmTVDGNhkHD98zDnJxQWu3i1FL1aFYeh9wiQTNu4pDCgps","/ip4/47.76.61.226/udp/1234/p2p/16Uiu2HAm2k6ua2mGgvZ8rTMV8GhpW71aVzkQWy7D37TTDuLCpgmX"]
 
 # List of libp2p nodes to initially connect to.
 # network_libp2p_nodes = []
@@ -77,7 +77,7 @@ network_boot_nodes = ["/ip4/47.251.79.83/udp/1234/p2p/16Uiu2HAkvJYQABP1MdvfWfUZU
 #######################################################################
 
 # RPC endpoint to sync event logs on EVM compatible blockchain.
-# blockchain_rpc_endpoint = "https://evmrpc-testnet.0g.ai"
+blockchain_rpc_endpoint = "https://evmrpc-testnet.0g.ai"
 
 # Flow contract address to sync event logs.
 log_contract_address = "0x56A565685C9992BF5ACafb940ff68922980DBBC5"
@@ -165,7 +165,7 @@ mine_contract_address = "0xB87E0e5657C25b4e132CB6c34134C0cB8A962AD6"
 #
 # Note, the corresponding address should have enough tokens to pay
 # transaction gas fee.
-# miner_key = "6431D800F6C67D2218033FFA2240F93C048AF51E8AC30937A9E1B58C69253268"
+# miner_key = "PRIVKEYIN"
 
 # Period for querying mine context on chain (in seconds)
 #
@@ -188,11 +188,11 @@ mine_contract_address = "0xB87E0e5657C25b4e132CB6c34134C0cB8A962AD6"
 # If this limit is reached, the node will update its `shard_position`
 # and store only half data.
 #
-db_max_num_sectors = 8000000000
+db_max_num_sectors = 4000000000
 
 # The format is <shard_id>/<shard_number>, where the shard number is 2^n.
 # This only applies if there is no stored shard config in db.
-# shard_position = "0/4"
+# shard_position = "0/2"
 
 reward_contract_address = "0x233B2768332e4Bae542824c93cc5c8ad5d44517E"
 # The time interval to check if we should half `shard_position` to prune data.
@@ -212,13 +212,13 @@ reward_contract_address = "0x233B2768332e4Bae542824c93cc5c8ad5d44517E"
 ###                Network Peer DB Config Options                   ###
 #######################################################################
 
-[network_peer_db]
+# [network_peer_db]
 
 # The maximum number of disconnected nodes to remember.
-max_disconnected_peers = 10000
+# max_disconnected_peers = 500
 
 # The maximum number of banned nodes to remember.
-max_banned_peers = 10000
+# max_banned_peers = 1000
 
 #######################################################################
 ###                   Router Config Options                         ###
@@ -309,13 +309,13 @@ auto_sync_enabled = true
 # [rpc]
 
 # Whether to provide RPC service.
-# enabled = true
+enabled = true
 
 # HTTP server address to bind for public RPC.
-# listen_address = "0.0.0.0:5678"
+listen_address = "0.0.0.0:5678"
 
 # HTTP server address to bind for admin and debug RPC.
-# listen_address_admin = "0.0.0.0:5679"
+# listen_address_admin = "127.0.0.1:5679"
 
 # Number of chunks for a single segment.
 # chunks_per_segment = 1024
