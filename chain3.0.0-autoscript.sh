@@ -215,8 +215,10 @@ sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persisten
 
 # Pruning Settings
 sed -i -e "s/^pruning *=.*/pruning = \"custom\"/" $HOME/.titan/config/app.toml
-sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"100\"/" $HOME/.titan/config/app.toml
-sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"50\"/" $HOME/.titan/config/app.toml
+sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"10\"/" $HOME/.titan/config/app.toml
+sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"0\"/" $HOME/.titan/config/app.toml
+sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"5\"/" $HOME/.titan/config/app.toml
+
 
 # Download the snapshot
 # printGreen "12. Downloading snapshot and starting node..." && sleep 1
